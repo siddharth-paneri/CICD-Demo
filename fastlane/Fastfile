@@ -1,0 +1,57 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Increment build number to latest testflight version by one"
+  lane :incrementBuildNumber do
+    generateUniqueBuildNumber
+    increment_build_number(
+      build_number: ENV["UNIQUE_XCODE_BUILD_NUMER"]
+    )
+  end
+  
+  desc "Generate unique build number from datetime as string"
+  lane :generateUniqueBuildNumber do
+    ENV["UNIQUE_XCODE_BUILD_NUMER"] = Time.new.strftime("%s")
+    puts ENV["UNIQUE_XCODE_BUILD_NUMER"]
+  end
+
+  desc "Build debug version of the app for distribution"
+  lane :buildDebug do
+    ipa_name = generateDebugIpaName
+    build_ios_app(
+      clean: true,
+      scheme: "CICD-DemoApp",
+      configuration: "Debug",
+      output_directory: "./fastlane/build",
+      output_name: ipa_name,
+      export_options: "./fastlane/exportOptions-app-store.plist"
+    )
+  end
+end
+  # Use this function to generate debug IPA name
+def generateDebugIpaName()
+  prefix = generateBuildNamePrefix_Debug
+  return prefix + ".ipa"
+end
+
+# Use below function to generate prefix for DEBUG dSym file
+def generateBuildNamePrefix_Debug()
+  prefix = generateBuildNamePrefix
+  return prefix + "-debug"
+end

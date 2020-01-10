@@ -1,0 +1,13 @@
+
+# app_identifier("[[APP_IDENTIFIER]]") # The bundle identifier of your app
+# apple_id("[[APPLE_ID]]") # Your Apple email address
+# itc_team_id("") # iTunes Connect Team ID
+# team_id("EQKQJVCSCW") # Developer Portal Team ID
+
+#app_identifier("com.cardinalhealth.orderexpress.two") # The bundle identifier of your app
+#apple_id("GMB-OrderExpressMobile-Developer-Logins@cardinalhealth.com") # Your Apple email address
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
+
+gem 'fastlane-plugin-aws_device_farm'
