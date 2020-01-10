@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Increment Build Number') {
             steps {
+                echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace: ${env.WORKSPACE}"
                 sh "fastlane ios incrementBuildNumber"
             }
         }
