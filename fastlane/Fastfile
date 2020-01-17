@@ -55,3 +55,14 @@ def generateBuildNamePrefix_Debug()
   prefix = generateBuildNamePrefix
   return prefix + "-debug"
 end
+
+# Use this function to generate overall build prefix
+def generateBuildNamePrefix()
+  testflight_version_number = get_version_number(
+    xcodeproj: "Hatch.xcodeproj"
+  )
+  testflight_build_number = get_build_number(
+    xcodeproj: "Hatch.xcodeproj"
+  )
+  return "CICD_" + testflight_version_number.to_s + "-" + testflight_build_number.to_s
+end
