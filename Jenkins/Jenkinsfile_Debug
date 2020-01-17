@@ -14,7 +14,7 @@ pipeline {
                 sh "fastlane ios incrementBuildNumber"
             }
         }
-        tage('Ruby path') {
+        stage('Ruby path') {
             steps {
                 sh "ruby -v"
                 sh "which ruby"
