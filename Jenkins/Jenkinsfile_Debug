@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build & Codesigning Debug ipa') {
             steps {
-                sh "fastlane ios buildDebug"
+                sh "bundle exec fastlane ios buildDebug"
             }
         }
         stage('Invoke Job 2') {
