@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-    */
+        /*
         stage('Bundle update') {
             steps {
                 sh "bundle update"
