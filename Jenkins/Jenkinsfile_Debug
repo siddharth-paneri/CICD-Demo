@@ -14,13 +14,19 @@ pipeline {
                 sh "fastlane ios incrementBuildNumber"
             }
         }
-        stage('Build & Codesigning Debug ipa') {
+        tage('Ruby path') {
             steps {
-                sh "fastlane ios buildDebug"
                 sh "ruby -v"
+                sh "which ruby"
+                sh "which fastlane "
             }
         }
         /*
+        stage('Build & Codesigning Debug ipa') {
+            steps {
+                sh "fastlane ios buildDebug"
+            }
+        }
         stage('Invoke Job 2') {
             steps {
                 build job: 'oe-plus-ios-multi-job-2', wait: 'false'
