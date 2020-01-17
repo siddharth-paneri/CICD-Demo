@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Bundle update') {
-            sh "bundle update"
+            steps {
+                sh "bundle update"
+            }
         }
         stage('Increment Build Number') {
             steps {
