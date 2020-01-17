@@ -1,6 +1,9 @@
 pipeline {
     agent any
     stages {
+        stage('Bundle update') {
+            sh "bundle update"
+        }
         stage('Increment Build Number') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace: ${env.WORKSPACE}"
