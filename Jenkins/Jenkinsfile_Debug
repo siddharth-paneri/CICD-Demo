@@ -17,13 +17,16 @@ pipeline {
         stage('Build & Codesigning Debug ipa') {
             steps {
                 sh "fastlane ios buildDebug"
+                sh "ruby -v"
             }
         }
+        /*
         stage('Invoke Job 2') {
             steps {
                 build job: 'oe-plus-ios-multi-job-2', wait: 'false'
             }
         }
+        */
 
     }
     post {
