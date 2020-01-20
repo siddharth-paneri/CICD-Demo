@@ -14,6 +14,11 @@ pipeline {
                 sh "fastlane ios incrementBuildNumber"
             }
         }
+        stage('Source Bash') {
+            steps {
+                sh "source ~/.bash_profile"
+            }
+        }
         stage('Environment check') {
             steps {
                 sh "echo Gem Environement"
