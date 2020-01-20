@@ -1,13 +1,13 @@
 pipeline {
     agent any
     stages {
-        /*
         stage('Bundle update') {
             steps {
+                sh "bundle install"
                 sh "bundle update"
+                sh "rvm use 2.6.5"
             }
         }
-        */
         stage('Increment Build Number') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace: ${env.WORKSPACE}"
