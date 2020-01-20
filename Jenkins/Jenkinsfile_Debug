@@ -14,10 +14,15 @@ pipeline {
                 sh "fastlane ios incrementBuildNumber"
             }
         }
-        stage('Ruby path') {
+        stage('Environment check') {
             steps {
+                sh "echo Gem Environement"
+                sh "gem env"
+                sh "echo Ruby Version"
                 sh "ruby -v"
+                sh "echo Which Ruby"
                 sh "which ruby"
+                sh "echo Which Fastlane"
                 sh "which fastlane "
             }
         }
