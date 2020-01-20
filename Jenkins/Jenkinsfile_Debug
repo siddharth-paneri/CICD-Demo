@@ -17,6 +17,12 @@ pipeline {
             }
         }
         */
+        stage('Update Ruby Path') {
+            steps {
+                sh "rbenv local 2.6.5"
+                sh "renv versions"
+            }
+        }
         stage('Environment check') {
             steps {
                 sh "gem env"
