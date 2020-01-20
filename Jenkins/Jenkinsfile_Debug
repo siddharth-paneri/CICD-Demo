@@ -19,8 +19,9 @@ pipeline {
         */
         stage('Update Ruby Path') {
             steps {
+                sh "rbenv versions"
                 sh "rbenv local 2.6.5"
-                sh "renv versions"
+                sh "rbenv versions"
             }
         }
         stage('Environment check') {
