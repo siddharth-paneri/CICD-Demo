@@ -9,27 +9,19 @@ pipeline {
                 sh "rvm use 2.6.5"
             }
         }
-        */
+        
         stage('Increment Build Number') {
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace: ${env.WORKSPACE}"
                 sh "fastlane ios incrementBuildNumber"
             }
         }
-        stage('Source Bash') {
-            steps {
-                sh "source $HOME/.bash_profile"
-            }
-        }
+        */
         stage('Environment check') {
             steps {
-                sh "echo Gem Environement"
                 sh "gem env"
-                sh "echo Ruby Version"
                 sh "ruby -v"
-                sh "echo Which Ruby"
                 sh "which ruby"
-                sh "echo Which Fastlane"
                 sh "which fastlane "
             }
         }
