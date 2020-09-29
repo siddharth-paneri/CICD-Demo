@@ -33,7 +33,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 * Xcode version:
 * iOS versions:
 * Simulator device versions:
-* Hardware device versions: 11.3, 11,4
+* Hardware device versions:
 
 # Checklist:
 (use x in the option below like [x] to mark them done)
